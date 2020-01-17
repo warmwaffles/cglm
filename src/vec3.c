@@ -417,3 +417,15 @@ void
 glmc_vec3_sqrt(vec3 v, vec3 dest) {
   glm_vec3_sqrt(v, dest);
 }
+
+CGLM_EXPORT
+void
+glmc_vec3_set(float x, float y, float z, vec3 dest) {
+  glm_vec3_set(x, y, z, dest);
+}
+
+CGLM_EXPORT
+void
+glmc_vec3_translate(float dx, float dy, float dz, vec3 dest) {
+  glm_vec3_translate(dx, dy, dz, dest);
+}
