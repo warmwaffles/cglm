@@ -73,6 +73,8 @@
    CGLM_INLINE void  glm_vec3_smoothinterp(vec3 from, vec3 to, float t, vec3 dest);
    CGLM_INLINE void  glm_vec3_smoothinterpc(vec3 from, vec3 to, float t, vec3 dest);
    CGLM_INLINE void  glm_vec3_swizzle(vec3 v, int mask, vec3 dest);
+   CGLM_INLINE void  glm_vec3_set(float x, float y, float z, vec3 dest);
+   CGLM_INLINE void  glm_vec3_translate(float dx, float dy, float dz, vec3 dest);
 
  Convenient:
    CGLM_INLINE void  glm_cross(vec3 a, vec3 b, vec3 d);
@@ -976,7 +978,7 @@ CGLM_INLINE
 void
 glm_vec3_smoothinterp(vec3 from, vec3 to, float t, vec3 dest) {
   vec3 s, v;
-    
+
   /* from + s * (to - from) */
   glm_vec3_broadcast(glm_smooth(t), s);
   glm_vec3_sub(to, from, v);
@@ -1079,4 +1081,39 @@ glm_normalize_to(vec3 v, vec3 dest) {
   glm_vec3_normalize_to(v, dest);
 }
 
+/*!
+ * @brief set the components of the vector components
+ *
+ *
+ * @param[in]  x    x position
+ * @param[in]  y    y position
+ * @param[in]  z    z position
+ * @param[out] dest destination
+ */
+CGLM_INLINE
+void
+glm_vec3_set(float x, float y, float z, vec3 dest)
+{
+    dest[0] = x;
+    dest[1] = y;
+    dest[2] = z;
+}
+
+/*!
+ * @brief set the components of the vector components
+ *
+ *
+ * @param[in]  dx   delta change in x position
+ * @param[in]  dy   delta change in y position
+ * @param[in]  dz   delta change in z position
+ * @param[out] dest destination
+ */
+CGLM_INLINE
+void
+glm_vec3_translate(float dx, float dy, float dz, vec3 dest)
+{
+    dest[0] += dx;
+    dest[1] += dy;
+    dest[2] += dz;
+}
 #endif /* cglm_vec3_h */
